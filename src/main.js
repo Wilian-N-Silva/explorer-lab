@@ -117,20 +117,15 @@ function updateSecurityCode(code) {
 }
 
 cardNumberMasked.on("accept", () => {
-  updateCardNumber(cardNumberMasked.value)
-})
-
-function updateCardNumber(code) {
-  const ccNumber = document.querySelector(".cc-number")
-  ccNumber.innerText = code.length === 0 ? "1234 5678 9012 3456" : code
-}
-
-cardNumberMasked.on("accept", () => {
   const cardType = cardNumberMasked.masked.currentMask.cardtype
   setCardType(cardType)
   updateCardNumber(cardNumberMasked.value)
 })
 
+function updateCardNumber(number) {
+  const ccNumber = document.querySelector(".cc-number")
+  ccNumber.innerText = number.length === 0 ? "1234 5678 9012 3456" : number
+}
 
 expirationDateMasked.on("accept", () => {
   updateExpirationDate(expirationDateMasked.value)
